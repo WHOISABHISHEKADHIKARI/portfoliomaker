@@ -1,0 +1,35 @@
+/* Local font-face fallbacks to satisfy default.css imports */
+
+/* Open Sans fallbacks */
+@font-face {
+  font-family: 'opensans-regular';
+  src: local('Open Sans'), local('OpenSans-Regular');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'opensans-bold';
+  src: local('Open Sans Bold'), local('OpenSans-Bold');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'opensans-light';
+  src: local('Open Sans Light'), local('OpenSans-Light');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'opensans-italic';
+  src: local('Open Sans Italic'), local('OpenSans-Italic');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Libre Baskerville italic fallback */
+@font-face {
+  font-family: 'librebaskerville-italic';
+  src: local('Libre Baskerville Italic');
+  font-weight: 400;
+  font-style: italic;
+}

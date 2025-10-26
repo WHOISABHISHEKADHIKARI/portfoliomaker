@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel – Sign In (Preview)</title>
+  <link rel="stylesheet" href="../profile_asset/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../profile_asset/css/modern.css">
+  <style>
+    :root { --bg:#0f172a; --panel:#111827; --border:#1f2937; --muted:#94a3b8; --text:#e2e8f0; --input:#0b1220; --accent:#2563eb; --accent-hover:#1d4ed8; }
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; background:var(--bg); color:var(--text); font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .container { width:100%; max-width:440px; background:var(--panel); border:1px solid var(--border); border-radius:14px; box-shadow:0 12px 36px rgba(0,0,0,.45); overflow:hidden; }
+    .brand { display:flex; align-items:center; gap:10px; padding:14px 18px; background:#0b1220; border-bottom:1px solid var(--border); }
+    .brand .logo { width:34px; height:34px; border-radius:8px; background:#1f2937; display:flex; align-items:center; justify-content:center; color:#93c5fd; }
+    .brand .name { font-weight:600; letter-spacing:.2px; }
+    .content { padding:22px; }
+    .form-group { margin-bottom:14px; }
+    label { display:block; margin-bottom:6px; font-size:.9rem; color:#cbd5e1; }
+    .input-wrap { position:relative; }
+    input[type="text"], input[type="password"] { width:100%; padding:12px 42px 12px 14px; background:var(--input); border:1px solid #243142; border-radius:10px; color:#e5e7eb; outline:none; transition:border-color .2s, box-shadow .2s; }
+    input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,.25); }
+    .toggle { position:absolute; right:10px; top:50%; transform:translateY(-50%); color:#cbd5e1; cursor:pointer; }
+    .actions { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:8px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid #334155; color:var(--text); background:#0b1220; cursor:pointer; text-decoration:none; }
+    .btn-primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .btn-primary:hover { background:var(--accent-hover); }
+    .links { display:flex; gap:12px; align-items:center; }
+    .links a { color:#93c5fd; text-decoration:none; }
+    .links a:hover { text-decoration:underline; }
+    .footer { padding:14px 18px; border-top:1px solid var(--border); color:var(--muted); font-size:.85rem; display:flex; justify-content:space-between; align-items:center; }
+    .helper { display:flex; gap:10px; align-items:center; color:var(--muted); font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container" role="region" aria-label="Admin Login">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"><i class="fa fa-shield"></i></div>
+      <div class="name">Admin Panel</div>
+    </div>
+    <div class="content">
+      <form aria-label="Login form" onsubmit="return false;" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-wrap">
+            <input id="username" type="text" placeholder="Enter username" autocomplete="username" required />
+            <span class="toggle" aria-hidden="true"><i class="fa fa-user"></i></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input id="password" type="password" placeholder="Enter password" autocomplete="current-password" required />
+            <span id="togglePwd" class="toggle" role="button" aria-label="Show password"><i class="fa fa-eye"></i></span>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="links">
+            <label style="display:inline-flex; align-items:center; gap:8px; color:#cbd5e1;">
+              <input type="checkbox" style="accent-color:#2563eb;"> Remember me
+            </label>
+          </div>
+          <div class="links">
+            <a href="../preview.html">Go to Website</a>
+            <a href="register_preview.html">Create Account</a>
+          </div>
+          <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in"></i> Sign In</button>
+        </div>
+      </form>
+    </div>
+    <div class="footer">
+      <span><i class="fa fa-lock" aria-hidden="true"></i> Secure access</span>
+      <a href="forgot_password_preview.html" class="links" aria-label="Forgot password">Forgot password?</a>
+    </div>
+  </div>
+  <script>
+    // Toggle password visibility
+    document.getElementById('togglePwd')?.addEventListener('click', function(){
+      const pwd = document.getElementById('password');
+      const isText = pwd.type === 'text';
+      pwd.type = isText ? 'password' : 'text';
+      this.querySelector('i').className = isText ? 'fa fa-eye' : 'fa fa-eye-slash';
+      this.setAttribute('aria-label', isText ? 'Show password' : 'Hide password');
+    });
+  </script>
+</body>
+</html>
